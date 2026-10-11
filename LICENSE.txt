@@ -1,0 +1,46 @@
+flote — Freeware License
+Version 1, 11 October 2026
+Copyright (c) 2026 NurNichtWilly. All rights reserved.
+
+1. Free use of this release
+You may download, install and use the official, unmodified flote application
+free of charge for personal and professional purposes. You may keep backup
+copies for your own use. This permission applies to the release supplied with
+these terms and does not expire merely because future releases have different
+terms or the publisher stops distributing the application.
+
+2. Reserved rights
+flote is proprietary software, not an open-source project. No license to its
+source code is granted. Except as permitted by applicable law or the licenses
+of included third-party components, you may not modify, redistribute, sublicense,
+sell, or incorporate flote or its code or assets into other products, or reverse
+engineer, decompile or disassemble it without the copyright holder's permission.
+Linking to the official download page is welcome.
+
+3. Third-party components
+Third-party components retain their own licenses. Their license and notice texts
+accompany the application under ThirdPartyNotices and the download under
+THIRD_PARTY_NOTICES.md and licenses/. These terms do not restrict any rights
+granted by those licenses. The optional downloaded embedding model also retains
+its own upstream license.
+
+4. Future availability
+The publisher may change the terms for future releases, charge for future
+versions, or stop hosting downloads and updates. No promise of maintenance,
+support, updates or continued download availability is made. These changes do
+not withdraw the permission in section 1 for this release.
+
+5. Warranty and liability
+The application is provided "as is", without warranties, to the extent permitted
+by applicable law. To the extent permitted by applicable law, the publisher is
+not liable for loss or damage arising from use of the application. Nothing in
+these terms excludes or limits liability or rights that cannot lawfully be
+excluded or limited, including applicable mandatory consumer rights.
+
+6. Public repository
+The public flote-releases repository hosts distribution information and official
+binary releases. Publishing it does not grant an open-source license to flote.
+Rights necessarily granted under GitHub's terms of service and applicable law
+are unaffected.
+
+Permission requests: https://github.com/NurNichtWilly/flote-releases/issues
