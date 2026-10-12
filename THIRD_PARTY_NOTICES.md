@@ -26,3 +26,20 @@ The native runtime distribution is Microsoft ONNX Runtime 1.24.2, MIT licensed. 
 Model weights are **not bundled**. Settings downloads `Xenova/multilingual-e5-small` export revision `761b726dd34fb83930e26aab4e9ac3899aa1fa78`, derived from `intfloat/multilingual-e5-small` (Microsoft multilingual E5, Liang Wang and contributors). The original model declares MIT; the pinned export card references that base model and declares no separate license: [pinned export card](licenses/e5-export-model-card.md), [original card](licenses/e5-original-model-card.md). The [Microsoft UniLM repository license](licenses/unilm-model-repository-LICENSE) is included as upstream project attribution. Download sizes and SHA-256 hashes are pinned in LocalModelManager.swift; see that source for exact artifact provenance. A one-time Hugging Face download is required; inference is local afterward.
 
 License texts were copied from the resolved package checkouts and the upstream URLs listed in [provenance.json](licenses/provenance.json).
+
+## Built-in language generation
+
+The app links [llama.cpp](https://github.com/ggml-org/llama.cpp) b5046, MIT licensed ([license](licenses/llama.cpp-LICENSE)), from its universal macOS XCFramework. The upstream archive SHA-256 is `c19be78b5f00d8d29a25da41042cb7afa094cbf6280a225abe614b03b20029ab`, pinned in `Packages/FloteLlama/Package.swift`.
+
+Optional Qwen weights are downloaded separately from `Qwen/Qwen2.5-0.5B-Instruct-GGUF`, revision `9217f5db79a29953eb74d5343926648285ec7e67`, file `qwen2.5-0.5b-instruct-q4_k_m.gguf`. Size: 491,400,032 bytes. SHA-256: `74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db`. The [Apache 2.0 license](licenses/qwen2.5-LICENSE) and [pinned model card](licenses/qwen2.5-model-card.md) are included. The model is not bundled in the app.
+
+Additional optional Qwen 2.5 Q4_K_M downloads:
+
+| Model | Pinned revision | File size | SHA-256 | Terms |
+|---|---|---|---|---|
+| 1.5B | `91cad51170dc346986eccefdc2dd33a9da36ead9` | 1,117,320,736 bytes | `6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e` | [Apache 2.0](licenses/qwen2.5-1.5b-LICENSE), [model card](licenses/qwen2.5-1.5b-model-card.md) |
+| 3B | `7dabda4d13d513e3e842b20f0d435c732f172cbe` | 2,104,932,768 bytes | `626b4a6678b86442240e33df819e00132d3ba7dddfe1cdc4fbb18e0a9615c62d` | [Qwen Research](licenses/qwen2.5-3b-LICENSE), [model card](licenses/qwen2.5-3b-model-card.md) |
+
+The 3B model's Qwen Research license permits research/evaluation use; commercial use requires a separate license from Alibaba Cloud. This restriction applies to that optional model, separately from flote's freeware terms. Models download directly from the pinned upstream repositories and are not bundled in flote.
+
+Qwen is licensed under the Qwen RESEARCH LICENSE AGREEMENT, Copyright (c) Alibaba Cloud. All Rights Reserved.

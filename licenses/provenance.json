@@ -114,6 +114,13 @@
     "e5-export-model-card.md": "https://huggingface.co/Xenova/multilingual-e5-small/raw/761b726dd34fb83930e26aab4e9ac3899aa1fa78/README.md",
     "e5-original-model-card.md": "https://huggingface.co/intfloat/multilingual-e5-small/raw/main/README.md",
     "unilm-model-repository-LICENSE": "https://raw.githubusercontent.com/microsoft/unilm/master/LICENSE",
-    "boringssl-LICENSE": "https://raw.githubusercontent.com/google/boringssl/master/LICENSE"
+    "boringssl-LICENSE": "https://raw.githubusercontent.com/google/boringssl/master/LICENSE",
+    "llama.cpp-LICENSE": "https://raw.githubusercontent.com/ggml-org/llama.cpp/b5046/LICENSE",
+    "qwen2.5-LICENSE": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/raw/9217f5db79a29953eb74d5343926648285ec7e67/LICENSE",
+    "qwen2.5-model-card.md": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/raw/9217f5db79a29953eb74d5343926648285ec7e67/README.md",
+    "qwen2.5-1.5b-LICENSE": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/raw/91cad51170dc346986eccefdc2dd33a9da36ead9/LICENSE",
+    "qwen2.5-1.5b-model-card.md": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/raw/91cad51170dc346986eccefdc2dd33a9da36ead9/README.md",
+    "qwen2.5-3b-LICENSE": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/raw/7dabda4d13d513e3e842b20f0d435c732f172cbe/LICENSE",
+    "qwen2.5-3b-model-card.md": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/raw/7dabda4d13d513e3e842b20f0d435c732f172cbe/README.md"
   }
 }
