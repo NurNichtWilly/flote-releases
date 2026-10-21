@@ -2,9 +2,9 @@
 
 A lightweight macOS menu-bar app for quick notes, Markdown, bullet outlines and optional semantic search, streamed note chat and AI tag suggestions. Press a global shortcut to open a fresh floating note. Notes are stored as local Markdown files.
 
-## Current release: flote 3.10
+## Current release: flote 3.11
 
-This release updates the macOS interface with native Liquid Glass and a saved System/Light/Dark theme preference. Chat streams answers, offers early related-note suggestions and supports Gemini, Ollama or downloaded built-in Qwen models. Local semantic search also supports Ollama EmbeddingGemma 2. AI generation is optional and disabled by default; model downloads are separate.
+This release adds task tracking via **⌥⌘T**, using Markdown checkboxes in your notes, plus optional Apple Reminders integration with list selection, task creation and completion. Tasks and search use minimal floating windows matching notes, with dragging, resizing and remembered geometry. Task shortcuts can be customized in Settings. Live Reminders synchronization after granting macOS permission still needs manual verification.
 
 See [release notes](RELEASE-NOTES.md), [AI setup and behavior](AI-GENERATION.md) and [vault/CLI setup](VAULT-AND-CLI.md). The optional Qwen 2.5 3B model has a research/evaluation license; commercial use requires a separate model license. Smaller built-in Qwen models use Apache 2.0.
 
