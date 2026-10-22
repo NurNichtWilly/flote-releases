@@ -2,9 +2,9 @@
 
 A lightweight macOS menu-bar app for quick notes, Markdown, bullet outlines and optional semantic search, streamed note chat and AI tag suggestions. Press a global shortcut to open a fresh floating note. Notes are stored as local Markdown files.
 
-## Current release: flote 3.11
+## Current release: flote 3.12
 
-This release adds task tracking via **⌥⌘T**, using Markdown checkboxes in your notes, plus optional Apple Reminders integration with list selection, task creation and completion. Tasks and search use minimal floating windows matching notes, with dragging, resizing and remembered geometry. Task shortcuts can be customized in Settings. Live Reminders synchronization after granting macOS permission still needs manual verification.
+This release adds **Settings → Tasks** controls to enable or disable Apple Reminders and save the lists flote may use. Disabling stops Reminders access while keeping your reminders and list choices. A crash when loading reminders has been fixed, and Settings remain accessible above floating windows. Native verification against the real macOS Reminders database passed for creation, changes in both directions, list switching and disabling/re-enabling. Cross-device iCloud propagation was not tested.
 
 See [release notes](RELEASE-NOTES.md), [AI setup and behavior](AI-GENERATION.md) and [vault/CLI setup](VAULT-AND-CLI.md). The optional Qwen 2.5 3B model has a research/evaluation license; commercial use requires a separate model license. Smaller built-in Qwen models use Apache 2.0.
 
