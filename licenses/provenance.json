@@ -1,12 +1,30 @@
 {
   "packages": [
     {
+      "identity": "argmax-oss-swift",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/argmaxinc/argmax-oss-swift.git",
+      "state": {
+        "revision": "1bbc57cb7fe6410248a685b1c5a3c6d56adc2ed4",
+        "version": "1.1.1"
+      }
+    },
+    {
       "identity": "eventsource",
       "kind": "remoteSourceControl",
       "location": "https://github.com/mattt/EventSource.git",
       "state": {
         "revision": "86b5096ac59ab46e66bd1f6377c604bc1dab0bc2",
         "version": "1.5.1"
+      }
+    },
+    {
+      "identity": "fluidaudio",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/FluidInference/FluidAudio.git",
+      "state": {
+        "revision": "a6b826ce9a09028fc685a4b32a8927ec920c3188",
+        "version": "0.17.3"
       }
     },
     {
@@ -34,6 +52,15 @@
       "state": {
         "revision": "eef1a539a373c1f1a320624b1130fc5de7b2e100",
         "version": "2.10.0"
+      }
+    },
+    {
+      "identity": "swift-argument-parser",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/apple/swift-argument-parser.git",
+      "state": {
+        "revision": "6a52f3251125d74daf04fcbd5e6f08a75d074382",
+        "version": "1.8.2"
       }
     },
     {

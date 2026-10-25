@@ -1,24 +1,26 @@
-# flote 3.12
+# flote 3.13
 
-Released 22 October 2026 — build 11. Requires macOS 14 or later; includes Apple Silicon and Intel binaries.
+Released 25 October 2026 — build 12. Requires macOS 14 or later; includes Apple Silicon and Intel binaries. Dictation requires Apple Silicon; Parakeet Redux additionally requires macOS 15 or later.
 
 ## What's new
 
-- Open **Settings → Tasks** to turn Apple Reminders integration on or off. It starts disabled; connect it explicitly when you want to use your reminders.
-- Choose the reminder lists flote may show and use for new tasks. Multiple list choices are saved across restarts. Read-only lists remain viewable.
-- Turning the integration off clears reminders from the task window and stops Reminders access in flote. Your reminders and list choices are kept, so you can enable it again later. Local Markdown tasks remain available.
-- Fix a crash when loading reminders after granting access: EventKit's background response now crosses safely into the app's Swift 6 UI state.
-- Settings stay accessible above floating notes and task windows, including when connecting Reminders.
+- Dictate into a note with Whisper Base, Whisper Tiny or Parakeet Redux. Open **Dictation**, choose an engine and language, and explicitly download/prepare the model before recording.
+- Stop recording to transcribe locally, review the text, then insert it at the current caret or selection. Insertions support normal undo/redo and autosave.
+- Whisper Base is the default. Tiny uses less space and memory with lower recognition quality; Parakeet Redux offers multilingual recognition with an approximately 220 MB download.
+- Audio stays in memory on your Mac. Only model preparation downloads assets; recording and transcription do not upload audio. Only one note can record at a time, and recordings stop after 55 seconds.
+- Discard or close the note to cancel pending recording/transcription. Late results cannot alter another or closed note. Uninserted preview text is discarded when the note closes.
 
 ## Verification and known limitations
 
-453 unit tests and two native UI workflows passed. A live test against the authorized macOS Reminders database verified creation from flote, external rename/completion, completion writeback, selected-list switching, disabling/re-enabling and external deletion. Disposable test lists were removed. Cross-device iCloud propagation was not tested.
+Unit and snapshot regressions cover editor behavior, persistence, model preparation, cancellation, permission denial and note isolation. Native UI checks cover engine selection and normal editing. Real-model checks transcribe synthetic German and English speech with all three models and reload cached installations. A native microphone check verifies real audio capture.
 
-Intel binaries are verified structurally; Intel runtime execution is not covered by the Apple Silicon tests. Full update installation/relaunch from a previous public release has not been revalidated for this version.
+These checks do not measure accuracy across different speakers, accents, background noise or extended sessions. Transcription starts after recording stops. Parakeet detects language automatically; the selected language supplies a script hint. Model assets are downloaded separately and retained in SDK-managed caches.
+
+Intel binaries are verified structurally; Intel runtime execution is not covered by the Apple Silicon tests. Other app features remain available on Intel, while dictation controls require Apple Silicon. Full update installation/relaunch from a previous public release has not been revalidated for this version.
 
 ## Installation and updates
 
-Quit the existing app and move flote.app from flote-3.12-11.dmg into Applications. Existing notes, settings and compatibility identifiers are retained. Users of 3.7 or later can use Check for Updates… in the menu bar or Settings. Older versions require a manual installation to migrate to the public update feed. Enable Reminders in Settings → Tasks and select your lists after updating; macOS may ask you to grant Reminders access to the new build.
+Quit the existing app and move flote.app from flote-3.13-12.dmg into Applications. Existing notes, settings and compatibility identifiers are retained. Users of 3.7 or later can use Check for Updates… in the menu bar or Settings. Older versions require a manual installation to migrate to the public update feed. Allow Microphone access when starting dictation; this build may require a new macOS permission grant.
 
 The app includes the universal CLI at flote.app/Contents/Helpers/flote. Install it through Settings → Terminal / CLI into a bin folder in your PATH. See VAULT-AND-CLI.md for setup and commands. AI models download separately; Ollama must be installed and running for its providers. Gemini requires your own API key and sends selected content to Google only when you choose its provider.
 

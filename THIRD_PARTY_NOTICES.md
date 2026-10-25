@@ -4,6 +4,9 @@ These dependencies retain their upstream licenses; this document does not assign
 
 | Dependency | Version | Revision | Original texts |
 |---|---|---|---|
+| [Argmax OSS / WhisperKit](https://github.com/argmaxinc/argmax-oss-swift) | 1.1.1 | `1bbc57cb7fe6410248a685b1c5a3c6d56adc2ed4` | [MIT license](licenses/argmax-oss-swift-LICENSE), [incorporated third-party notices](licenses/argmax-oss-swift-NOTICES) |
+| [FluidAudio](https://github.com/FluidInference/FluidAudio) | 0.17.3 | `a6b826ce9a09028fc685a4b32a8927ec920c3188` | [Apache 2.0 license](licenses/fluidaudio-LICENSE), [fastcluster](licenses/fluidaudio-fastcluster-LICENSE.md), [VBx](licenses/fluidaudio-vbx-LICENSE.md), [NeMo](licenses/fluidaudio-NemoTextProcessing-LICENSE.md), [Japanese G2P](licenses/fluidaudio-JapaneseG2P-LICENSE.md), [Kokoro G2P](licenses/fluidaudio-KokoroAneSpanishFrenchG2P-LICENSE.md) |
+| [Swift Argument Parser](https://github.com/apple/swift-argument-parser) | 1.8.2 | `6a52f3251125d74daf04fcbd5e6f08a75d074382` | [LICENSE](licenses/swift-argument-parser-LICENSE.txt) |
 | [Sparkle](https://github.com/sparkle-project/Sparkle) | 2.10.0 | `eef1a539a373c1f1a320624b1130fc5de7b2e100` | [LICENSE](licenses/sparkle-LICENSE) |
 | [eventsource](https://github.com/mattt/EventSource.git) | 1.5.1 | `86b5096ac59ab46e66bd1f6377c604bc1dab0bc2` | [LICENSE.md](licenses/eventsource-LICENSE.md) |
 | [keyboardshortcuts](https://github.com/sindresorhus/KeyboardShortcuts.git) | 3.1.0 | `772133d9dbe800fdac0473226822994c5c162c58` | [license](licenses/keyboardshortcuts-license) |
@@ -22,6 +25,8 @@ These dependencies retain their upstream licenses; this document does not assign
 The native runtime distribution is Microsoft ONNX Runtime 1.24.2, MIT licensed. Its full [upstream third-party notices](licenses/onnxruntime-1.24.2-ThirdPartyNotices.txt) are reproduced without filtering; the upstream list can include components unused by this particular CPU build. BoringSSL attribution for Swift Crypto is also included in [the upstream license](licenses/boringssl-LICENSE).
 
 ## Optional downloaded model
+
+Dictation optionally downloads multilingual Whisper Base or Tiny Core ML assets from [argmaxinc/whisperkit-coreml](https://huggingface.co/argmaxinc/whisperkit-coreml), which declares MIT, or [FluidInference/parakeet-redux-coreml](https://huggingface.co/FluidInference/parakeet-redux-coreml), which declares CC BY 4.0. Parakeet Redux is the Core ML conversion of moondream's ternary retraining of NVIDIA Parakeet TDT 0.6B v3; see the [upstream model card](licenses/parakeet-redux-model-card.md) for attribution and conversion details. These downloads use the SDK-managed upstream model repositories and caches, rather than pinned app-bundled weights. The selected engine is prepared only on an explicit user action; recognition runs locally. SDK licenses above apply separately from the model licenses.
 
 Model weights are **not bundled**. Settings downloads `Xenova/multilingual-e5-small` export revision `761b726dd34fb83930e26aab4e9ac3899aa1fa78`, derived from `intfloat/multilingual-e5-small` (Microsoft multilingual E5, Liang Wang and contributors). The original model declares MIT; the pinned export card references that base model and declares no separate license: [pinned export card](licenses/e5-export-model-card.md), [original card](licenses/e5-original-model-card.md). The [Microsoft UniLM repository license](licenses/unilm-model-repository-LICENSE) is included as upstream project attribution. Download sizes and SHA-256 hashes are pinned in LocalModelManager.swift; see that source for exact artifact provenance. A one-time Hugging Face download is required; inference is local afterward.
 
