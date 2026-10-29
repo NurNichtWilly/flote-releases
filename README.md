@@ -2,15 +2,17 @@
 
 A lightweight macOS menu-bar app for quick notes, Markdown, bullet outlines and optional semantic search, streamed note chat and AI tag suggestions. Press a global shortcut to open a fresh floating note. Notes are stored as local Markdown files.
 
-## Current release: flote 3.14
+## Current release: flote 3.15
 
-Dictate directly into a note and see recognized text appear while you speak. The note has one Dictation / Stop button; model preparation and language options live in Settings → Dictation. Automatic multilingual recognition is the default. Whisper Base, Whisper Tiny and Parakeet Redux are available. Audio stays in memory on your Mac.
+Dictate into notes with local speech recognition, a personal dictionary and optional local AI text cleanup. Cleanup starts off, has its own model and time budget, and preserves recognized text with dictionary corrections when its content check fails or processing times out. Live previews remain raw.
 
-Open a dictation note with the configurable ⌥⌘D shortcut. Open Settings with ⌥⌘, globally or ⌘, inside flote. Settings support full keyboard navigation: ⌘1–8 selects a category, Control-Tab cycles categories, ⌘0 focuses the sidebar, and Tab / Shift-Tab moves through controls. Space / Return activates controls; arrow keys choose options. Focus a shortcut control and press Space / Return to record; Escape cancels, Delete clears, and Tab / Shift-Tab continues navigation.
+An optional local benchmark compares all three offered Qwen2.5 models on your Mac, with real examples, content-check counts, measured speed and personal quality ratings. Missing test models download one at a time and are removed afterward; installed models are retained. Your dictated text and audio are never used for benchmarks. See [dictionary and cleanup](DICTATION-CLEANUP.md).
 
-Dictation requires Apple Silicon; Parakeet Redux additionally requires macOS 15+. Other app features remain available on Intel. Automated regressions cover live editor insertion, cancellation and keyboard-only Settings navigation. Real microphone and model checks remain opt-in; these checks do not measure recognition accuracy across accents or background noise.
+Create named Markdown templates in Settings → Notes & Obsidian. Insert them from the slash menu, with automatic date/time values, custom formats and named fields with optional defaults. Direct date/time commands and English/German aliases work within a line after whitespace. List exits and Undo/Redo are more reliable, including after large template insertions.
 
-See [release notes](RELEASE-NOTES.md), [AI setup and behavior](AI-GENERATION.md) and [vault/CLI setup](VAULT-AND-CLI.md). The optional Qwen 2.5 3B model has a research/evaluation license; commercial use requires a separate model license. Smaller built-in Qwen models use Apache 2.0.
+Open a dictation note with configurable ⌥⌘D; open Settings globally with ⌥⌘, or ⌘, inside flote. Prepare speech models explicitly in Settings → Dictation. Speech recognition requires Apple Silicon; Parakeet Redux additionally requires macOS 15+. Other app features remain available on Intel. The normal public package remains sandboxed and supports dictation in notes; system-wide Fn dictation currently uses a separate private evaluation build.
+
+See [release notes](RELEASE-NOTES.md), [AI setup](AI-GENERATION.md) and [vault/CLI setup](VAULT-AND-CLI.md). Optional Qwen2.5 3B has research/evaluation licensing restrictions; smaller built-in Qwen models use Apache 2.0. Models are downloaded separately and are not bundled.
 
 ## Download
 

@@ -1,34 +1,30 @@
-# flote 3.14
+# flote 3.15
 
-Released 28 October 2026 — build 13. Requires macOS 14 or later; includes Apple Silicon and Intel binaries. Dictation requires Apple Silicon; Parakeet Redux additionally requires macOS 15 or later.
+Released 29 October 2026 — build 14. macOS 14 or later; universal Apple Silicon and Intel application. Speech recognition requires Apple Silicon; Parakeet Redux also requires macOS 15 or later.
 
-## Live, multilingual dictation
+## Dictionary and optional local AI cleanup
 
-- Recognized text appears directly in your note while you speak. Stop dictation to finish recognition; no preview or manual insertion step is required.
-- A single Dictation / Stop button stays in the note. Model selection, preparation and language choices are in Settings → Dictation.
-- Automatic (multilingual) is the default. You can still provide an explicit language hint. Whisper Base, Whisper Tiny and Parakeet Redux remain available.
-- Use the configurable ⌥⌘D shortcut to open a note and start dictating. Prepare your model once in Settings before the first recording.
-- Audio stays in memory on this Mac. Transcription runs locally, recordings stop after 55 seconds, and only explicit model preparation downloads assets.
-- Recognition can revise earlier words. Editing the note during recognition stops dictation so your changes are preserved. Text already inserted remains in the note when the session is cancelled or the window closes.
+- Add recognized words or phrases and their preferred spellings in Settings → Dictation. Dictionary corrections apply to final text even with AI cleanup disabled. URLs, email addresses, paths and backtick code are protected.
+- AI text cleanup is off by default. Enable it separately and choose its own built-in Qwen2.5 0.5B, 1.5B or 3B model, independently of Chat. 1.5B is preselected; download the model explicitly before use.
+- Cleanup adds punctuation/capitalization and removes selected filler words locally. A conservative content check rejects word changes, translations, changed numbers and damaged protected text. Failure, rejection or a configurable 3/8/15/30-second budget preserves recognized text with dictionary corrections. Native processing steps can briefly exceed the budget.
+- Run the optional local benchmark to compare all offered models, actual examples, content-check outcomes and your personal quality rating. Missing models download sequentially and are deleted after testing; installed models remain. Cancel or normal quit unloads and removes temporary assets. Force quit/power loss can leave OS-temporary files.
+- Speed labels start as estimates and use your Mac's measurements afterward. The benchmark saves only fixed synthetic examples and results, never your dictated text or audio. Four short cases are a comparison aid, not a general accuracy score.
+- The 3B model has research/evaluation licensing restrictions; its license notice appears in Settings. Longer dictations may need a larger processing budget.
 
-## Keyboard-friendly Settings
+## Templates, dates and a steadier editor
 
-- Open Settings from any app with the configurable ⌥⌘, shortcut, or use ⌘, inside flote.
-- ⌘1–8 selects a category; Control-Tab / Control-Shift-Tab switches categories; ⌘0 focuses the sidebar.
-- Tab / Shift-Tab moves through controls. Space / Return activates menus, buttons and switches. Use arrow keys to choose menu items or an appearance, and Escape to dismiss menus, cancel shortcut recording or close dialogs.
-- Focus a shortcut control and press Space / Return to record. Escape cancels, Delete clears, and Tab / Shift-Tab navigates even while recording.
-- Shortcut edits retain the current form instead of rebuilding it and losing focus. English interface workflows are the acceptance-test baseline.
+- Create named Markdown templates in Settings → Notes & Obsidian; insert them from `/template`, `/vorlage` or by searching their name.
+- Templates support `{{date}}`, `{{time}}`, `{{datetime}}`, explicit formats such as `{{date:yyyy-MM-dd}}` and named custom fields with optional defaults. A small insertion form asks for custom values. Cancel keeps the source text; changes to the note prevent a stale replacement.
+- Insert the current date/time directly with slash commands, including within a line after whitespace. English and German command aliases work in either interface language.
+- Built-in slash command titles, hints, empty results and accessibility labels follow the app language.
+- Undo/Redo treats slash/template insertion as an edit. Repeated Enter reliably leaves lists and quotes; subsequent Enter, Tab and Backspace no longer operate on the preceding item. Cached paragraph invalidation is bounded after large template undo operations.
 
-## Verification and limitations
+## System-wide Fn evaluation
 
-Automated regressions cover dictation lifecycle, live editor insertion, Unicode selections, undo/redo, cancellation, note isolation, storage and keyboard-only Settings navigation. Real microphone and real-model integration tests remain opt-in and are not part of the standard automated run. The earlier three-model synthetic speech checks are not a new accuracy evaluation of live recognition.
-
-Recognition latency and quality depend on the model, hardware, speakers and background noise. Intel packages are verified structurally; runtime execution is tested on Apple Silicon. Full installation/relaunch through Sparkle from the previous public release has not been revalidated for this version.
+The normal public app remains sandboxed and supports dictation inside notes. System-wide Fn dictation is available in the separate **flote Dictation Dev** evaluation package in the private development release, using its own app identity, permissions and settings. It cannot install the normal app through the stable updater. Hold Fn to speak and release to insert; double-tap for hands-free recording, Escape to cancel. TextEdit and Chrome insertion have been exercised; broader app/fullscreen/security-field acceptance remains in progress. This is not a claim that the normal sandboxed download supports global Fn capture.
 
 ## Installation and updates
 
-Quit the existing app and move flote.app from flote-3.14-13.dmg into Applications. Existing notes, settings and compatibility identifiers are retained. Users of 3.7 or later can use Check for Updates… in the menu bar or Settings. Older versions require a manual installation to migrate to the public update feed. Allow Microphone access when starting dictation if macOS asks.
+Quit flote and move flote.app from **flote-3.15-14.dmg** into Applications, or use **Check for Updates…** on a public-feed version (3.7 or later). Existing notes, settings and retained compatibility identifiers remain. Models download separately. Full previous-version Sparkle installation/relaunch has not been revalidated for this version; feed/archive signatures and package structure are verified separately. Intel binaries are verified structurally; runtime tests run on Apple Silicon.
 
-The app includes the universal CLI at flote.app/Contents/Helpers/flote. Install it through Settings → Advanced into a bin folder in your PATH. See VAULT-AND-CLI.md for setup and commands. AI models download separately; Ollama must be installed and running for its providers. Gemini requires your own API key and sends selected content to Google only when you choose its provider.
-
-The app is ad-hoc signed and not notarized. flote is proprietary freeware; LICENSE.txt and THIRD_PARTY_NOTICES.md accompany the package. Source code is not included.
+The universal offline CLI is included at flote.app/Contents/Helpers/flote. See VAULT-AND-CLI.md for setup. Public packages are ad-hoc signed and not notarized. The app is proprietary freeware; LICENSE.txt and THIRD_PARTY_NOTICES.md accompany the distribution. Source and internal verification files are not included.
