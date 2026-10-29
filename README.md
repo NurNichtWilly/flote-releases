@@ -2,11 +2,13 @@
 
 A lightweight macOS menu-bar app for quick notes, Markdown, bullet outlines and optional semantic search, streamed note chat and AI tag suggestions. Press a global shortcut to open a fresh floating note. Notes are stored as local Markdown files.
 
-## Current release: flote 3.13
+## Current release: flote 3.14
 
-Dictate into a note with **Whisper Base**, **Whisper Tiny** or **Parakeet Redux**. Download/prepare the selected model explicitly, record, review the locally transcribed text and insert it at the current caret or selection. Undo/redo and autosave work normally. Audio stays in memory on your Mac.
+Dictate directly into a note and see recognized text appear while you speak. The note has one Dictation / Stop button; model preparation and language options live in Settings → Dictation. Automatic multilingual recognition is the default. Whisper Base, Whisper Tiny and Parakeet Redux are available. Audio stays in memory on your Mac.
 
-Dictation requires Apple Silicon; Parakeet Redux additionally requires macOS 15+. Other app features remain available on Intel. Real-model German/English synthetic speech, cached loading, microphone capture and editor/cancellation regressions have been checked. These checks do not measure accuracy across accents or background noise.
+Open a dictation note with the configurable ⌥⌘D shortcut. Open Settings with ⌥⌘, globally or ⌘, inside flote. Settings support full keyboard navigation: ⌘1–8 selects a category, Control-Tab cycles categories, ⌘0 focuses the sidebar, and Tab / Shift-Tab moves through controls. Space / Return activates controls; arrow keys choose options. Focus a shortcut control and press Space / Return to record; Escape cancels, Delete clears, and Tab / Shift-Tab continues navigation.
+
+Dictation requires Apple Silicon; Parakeet Redux additionally requires macOS 15+. Other app features remain available on Intel. Automated regressions cover live editor insertion, cancellation and keyboard-only Settings navigation. Real microphone and model checks remain opt-in; these checks do not measure recognition accuracy across accents or background noise.
 
 See [release notes](RELEASE-NOTES.md), [AI setup and behavior](AI-GENERATION.md) and [vault/CLI setup](VAULT-AND-CLI.md). The optional Qwen 2.5 3B model has a research/evaluation license; commercial use requires a separate model license. Smaller built-in Qwen models use Apache 2.0.
 
