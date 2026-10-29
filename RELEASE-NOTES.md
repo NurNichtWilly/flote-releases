@@ -1,30 +1,27 @@
-# flote 3.15
+# flote 3.16
 
-Released 29 October 2026 — build 14. macOS 14 or later; universal Apple Silicon and Intel application. Speech recognition requires Apple Silicon; Parakeet Redux also requires macOS 15 or later.
+Released 29 October 2026 — build 15. macOS 14 or later; universal Apple Silicon and Intel application. Speech recognition requires Apple Silicon; Parakeet Redux also requires macOS 15 or later.
 
-## Dictionary and optional local AI cleanup
+## One app with optional system-wide dictation
 
-- Add recognized words or phrases and their preferred spellings in Settings → Dictation. Dictionary corrections apply to final text even with AI cleanup disabled. URLs, email addresses, paths and backtick code are protected.
-- AI text cleanup is off by default. Enable it separately and choose its own built-in Qwen2.5 0.5B, 1.5B or 3B model, independently of Chat. 1.5B is preselected; download the model explicitly before use.
-- Cleanup adds punctuation/capitalization and removes selected filler words locally. A conservative content check rejects word changes, translations, changed numbers and damaged protected text. Failure, rejection or a configurable 3/8/15/30-second budget preserves recognized text with dictionary corrections. Native processing steps can briefly exceed the budget.
-- Run the optional local benchmark to compare all offered models, actual examples, content-check outcomes and your personal quality rating. Missing models download sequentially and are deleted after testing; installed models remain. Cancel or normal quit unloads and removes temporary assets. Force quit/power loss can leave OS-temporary files.
-- Speed labels start as estimates and use your Mac's measurements afterward. The benchmark saves only fixed synthetic examples and results, never your dictated text or audio. Four short cases are a comparison aid, not a general accuracy score.
-- The 3B model has research/evaluation licensing restrictions; its license notice appears in Settings. Longer dictations may need a larger processing budget.
+The normal flote release now runs without App Sandbox. **Dictate everywhere** is available in Settings → Dictation in the same app and stable update channel; no separate evaluation app is needed.
 
-## Templates, dates and a steadier editor
+Enable system-wide dictation, explicitly prepare a speech model, and allow Accessibility and Microphone access when macOS requests them. Hold Fn to speak and release to insert; double-tap for hands-free recording, press again to finish, and Escape to cancel. A configurable alternative shortcut is available. In macOS Keyboard settings, set the Globe/Fn action to Do Nothing to avoid conflicts with Apple's actions or other voice apps.
 
-- Create named Markdown templates in Settings → Notes & Obsidian; insert them from `/template`, `/vorlage` or by searching their name.
-- Templates support `{{date}}`, `{{time}}`, `{{datetime}}`, explicit formats such as `{{date:yyyy-MM-dd}}` and named custom fields with optional defaults. A small insertion form asks for custom values. Cancel keeps the source text; changes to the note prevent a stale replacement.
-- Insert the current date/time directly with slash commands, including within a line after whitespace. English and German command aliases work in either interface language.
-- Built-in slash command titles, hints, empty results and accessibility labels follow the app language.
-- Undo/Redo treats slash/template insertion as an edit. Repeated Enter reliably leaves lists and quotes; subsequent Enter, Tab and Backspace no longer operate on the preceding item. Cached paragraph invalidation is bounded after large template undo operations.
+## Existing data and settings
 
-## System-wide Fn evaluation
+The app keeps its existing identity and update feed. On the first direct launch it imports the previous sandbox preferences once, taking current sandbox values over stale historical direct settings and retaining the original bookmark bytes. Existing model/index files and unsaved-note recovery files are reused in place; no note folder or Keychain identifier is renamed or deleted. New installations use normal Application Support. An unreadable existing preferences file produces a recovery message rather than silently opening first-run setup.
 
-The normal public app remains sandboxed and supports dictation inside notes. System-wide Fn dictation is available in the separate **flote Dictation Dev** evaluation package in the private development release, using its own app identity, permissions and settings. It cannot install the normal app through the stable updater. Hold Fn to speak and release to insert; double-tap for hands-free recording, Escape to cancel. TextEdit and Chrome insertion have been exercised; broader app/fullscreen/security-field acceptance remains in progress. This is not a claim that the normal sandboxed download supports global Fn capture.
+Note storage, vault links, CLI installation and folder recovery support both direct access and legacy security-scoped bookmarks. Test preference suites cannot overwrite the production CLI collection configuration. Previous dictionary, optional local cleanup, benchmark and template features are retained.
 
-## Installation and updates
+## Permissions and distribution
 
-Quit flote and move flote.app from **flote-3.15-14.dmg** into Applications, or use **Check for Updates…** on a public-feed version (3.7 or later). Existing notes, settings and retained compatibility identifiers remain. Models download separately. Full previous-version Sparkle installation/relaunch has not been revalidated for this version; feed/archive signatures and package structure are verified separately. Intel binaries are verified structurally; runtime tests run on Apple Silicon.
+macOS privacy protections still apply. Enabling system-wide dictation requires your permission; disabling the feature stops its keyboard monitoring. App Sandbox is a signed build property and cannot be switched on or off inside the running app.
 
-The universal offline CLI is included at flote.app/Contents/Helpers/flote. See VAULT-AND-CLI.md for setup. Public packages are ad-hoc signed and not notarized. The app is proprietary freeware; LICENSE.txt and THIRD_PARTY_NOTICES.md accompany the distribution. Source and internal verification files are not included.
+Packages continue to use ad-hoc signatures and are not notarized. macOS may ask you to approve the app or its Accessibility permission again after updating. Developer ID signing is not included in this release. Do not remove the old app container; the updated app continues using existing data there.
+
+The universal offline CLI is included at flote.app/Contents/Helpers/flote; see VAULT-AND-CLI.md. The app is proprietary freeware; LICENSE.txt and THIRD_PARTY_NOTICES.md accompany the distribution. Models download separately. Qwen2.5 3B remains for research/evaluation; its separate license restrictions still apply.
+
+## Verification scope
+
+Automated tests cover preference import, retained bookmarks, file writes/recovery, dictation state, update validation and editor behavior. Synthetic German/English speech checks exercise local recognition. TextEdit/Chrome Fn insertion was previously exercised in the development implementation. Intel execution, every external app/secure-field/fullscreen combination, and a fresh physical Fn recording in this exact release are not claimed as fully validated.

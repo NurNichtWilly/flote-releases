@@ -51,7 +51,7 @@ flote --version
 
 A custom absolute prefix is accepted: `scripts/install-cli.sh /your/prefix`. Uninstall with `scripts/uninstall-cli.sh` (or the same prefix). Uninstallation removes only the executable and retains notes.
 
-The CLI uses the app’s exported current collection, located at `~/Library/Containers/chillig.zeronote/Data/Library/Application Support/flote/collection.json`. The historical container name is retained for upgrade compatibility. Select a notes folder in the updated app once to export this configuration. The CLI can create, list, read, search and rename notes while the app is stopped. Basic access works offline and does not require an embedding or generation model.
+The CLI uses the app’s exported current collection, located at `~/Library/Containers/chillig.zeronote/Data/Library/Application Support/flote/collection.json`. Existing installations retain this path for upgrade compatibility. Fresh installations of the next direct Release use `~/Library/Application Support/flote/collection.json`; the CLI follows the same location choice as the app. Select a notes folder in the updated app once to export this configuration. The CLI can create, list, read, search and rename notes while the app is stopped. Basic access works offline and does not require an embedding or generation model.
 
 ```sh
 flote "einkauf finden"
