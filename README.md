@@ -2,9 +2,11 @@
 
 A lightweight macOS menu-bar app for quick notes, Markdown, bullet outlines and optional semantic search, streamed note chat and AI tag suggestions. Press a global shortcut to open a fresh floating note. Notes are stored as local Markdown files.
 
-## Current release: flote 3.16
+## Current release: flote 3.17
 
-One normal app and update channel now supports both note dictation and optional system-wide dictation. The sandbox is disabled in the signed Release build; macOS privacy permissions still apply. Do not delete the previous app container: existing data continues to live there.
+Live system-wide dictation now uses normal keyboard input, including a fallback for editors without accessible text attributes. Recording starts before cached model loading, and smaller controls stay away from the pointer and caret.
+
+One normal app and update channel supports both note dictation and optional system-wide dictation. The sandbox is disabled in the signed Release build; macOS privacy permissions still apply. Do not delete the previous app container: existing data continues to live there.
 
 Dictate into notes with local speech recognition, a personal dictionary and optional local AI text cleanup. Cleanup starts off, has its own model and time budget, and preserves recognized text with dictionary corrections when its content check fails or processing times out. Live previews remain raw.
 
