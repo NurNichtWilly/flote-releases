@@ -2,7 +2,11 @@
 
 A lightweight macOS menu-bar app for quick notes, Markdown, bullet outlines and optional semantic search, streamed note chat and AI tag suggestions. Press a global shortcut to open a fresh floating note. Notes are stored as local Markdown files.
 
-## Current release: flote 3.17
+## Current release: flote 3.18
+
+Create a daily report from saved notes for a selected day, customize its format, review the preview and save it as a new note. The selected local/Gemini provider and processing scope are shown before generation. See [daily reports](DAILY-REPORTS.md).
+
+Optional English/German spoken formatting adds explicit punctuation, newline/paragraph and 0–12 number commands without an AI cleanup model. Ordinary punctuation words, preferred dictionary spellings and unsupported compounds stay intact. See [spoken formatting](DICTATION-FORMATTING.md).
 
 Live system-wide dictation now uses normal keyboard input, including a fallback for editors without accessible text attributes. Recording starts before cached model loading, and smaller controls stay away from the pointer and caret.
 

@@ -1,29 +1,21 @@
-# flote 3.17
+# flote 3.18
 
-Released 4 November 2026 — build 16. macOS 14 or later; universal Apple Silicon and Intel application. Speech recognition requires Apple Silicon; Parakeet Redux also requires macOS 15 or later.
+Released 4 November 2026 — build 17. macOS 14 or later; universal Apple Silicon and Intel application. Speech recognition requires Apple Silicon; Parakeet Redux also requires macOS 15 or later.
 
-## Speak immediately
+## Daily reports from your notes
 
-Recording starts before the cached speech model finishes loading. You can speak as soon as microphone access is available; audio is buffered in memory and recognition catches up. Releasing Fn during model loading stops capture and transcribes the recorded audio when the model is ready.
+Choose Daily report… in the menu bar, select a day and customize how your report should look. Review the generated Markdown preview, then save it as a new note. Sources are saved flote notes last modified on that local calendar day; existing reports and the read-only Obsidian vault are excluded. Save open notes first.
 
-## Live dictation across apps
+Reports use your selected AI provider: built-in local, local Ollama or Google Gemini. The report window explains the processing scope before generation; Gemini receives the selected notes and your report instructions. No models download automatically. Longer notes are processed in bounded sections, with explicit limits and errors instead of silent truncation. Source notes and your manual report edits are preserved.
 
-Recognized text appears while you speak through the app's normal keyboard-input path. New words extend the current dictation, recognition corrections revise its suffix, and final recognition or optional cleanup updates that same passage without inserting a second copy.
+## Spoken formatting without an AI cleanup model
 
-A keyboard fallback supports editors that do not expose readable text or editable selections through macOS Accessibility. Where the destination exposes its text, flote verifies the result. Otherwise it reports the text as sent and retains Copy text for recovery. App-specific text handling can still affect compatibility; password fields and secure keyboard input remain excluded.
+Settings → Dictation now offers optional English/German formatting commands with independent punctuation and number switches. Examples include “insert comma”, “insert new paragraph” and “number seven”, or “Komma einfügen”, “Absatz einfügen” and “Zahl sieben”. Select the spoken language explicitly. Bare punctuation words and ordinary number words remain literal; supported number commands cover 0–12 and preserve unsupported compounds.
 
-Typing yourself, moving with navigation keys or clicking outside the recording controls stops further dictation input. Normal Fn release lets an already-started text update complete before finalizing.
+Dictionary spellings, quoted commands, URLs, paths and code are protected. Rules run on the final transcript after dictionary corrections and before optional local AI cleanup. Live previews remain unprocessed.
 
-## Smaller recording controls
+## Updating and verification
 
-The recording window is more compact and stays at a screen edge, away from the pointer and available caret bounds. Its position is chosen again for every recording.
+Existing notes, settings, cached models and the stable update channel are retained. Packages continue to use ad-hoc Apple signatures and are not notarized; macOS may require approval or renewed Accessibility permission after an update. Speech model downloads remain explicit in Settings.
 
-## Updating and permissions
-
-Existing notes, settings, model files and the stable update channel are retained. Enable Dictate everywhere in Settings → Dictation and allow Accessibility and Microphone access. In macOS Keyboard settings, set the Globe/Fn action to Do Nothing to avoid competing actions. Models are prepared explicitly in Settings; recording does not initiate a download.
-
-Packages continue to use ad-hoc Apple signatures and are not notarized. macOS may require app approval or renewed Accessibility permission after updating. The bundled offline CLI and freeware/third-party license terms remain included.
-
-## Verification scope
-
-60 focused dictation tests cover recording during model loading, pending edits at Fn release, Unicode and shorter corrections, keyboard fallback behavior, focus/user-input interruptions, clipboard recovery and delayed text/caret updates. The local development build was manually tested by the user. Compatibility with every external editor and Intel runtime execution are not claimed as fully validated.
+Automated checks cover local calendar/DST boundaries, long-note coverage, source ordering, cancellation, report edits/renames/deletion, formatting boundaries and unsupported compounds. Native UI checks exercise report preview/save/open, ordinary note editing and dictation settings in English and German. Generation tests use synthetic responses; summary accuracy depends on the selected model and should be reviewed before saving. Intel runtime execution and universal external-editor dictation compatibility are not claimed.
