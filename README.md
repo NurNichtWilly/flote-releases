@@ -2,7 +2,9 @@
 
 A lightweight macOS menu-bar app for quick notes, Markdown, bullet outlines and optional semantic search, streamed note chat and AI tag suggestions. Press a global shortcut to open a fresh floating note. Notes are stored as local Markdown files.
 
-## Current release: flote 3.18
+## Current release: flote 3.19
+
+Fn dictation now reconnects when keyboard permissions return, shares recording/model state across destinations and handles longer takes with bounded recognition windows. The recording overlay disappears automatically five seconds after release once insertion completes; failed insertion keeps Copy recovery. Terminal/iTerm newlines and control characters are retained for review instead of automatic command submission. See [dictation setup and recovery](DICTATION.md).
 
 Create a daily report from saved notes for a selected day, customize its format, review the preview and save it as a new note. The selected local/Gemini provider and processing scope are shown before generation. See [daily reports](DAILY-REPORTS.md).
 
