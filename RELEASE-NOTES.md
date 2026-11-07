@@ -1,25 +1,31 @@
-# flote 3.19
+# flote 3.20
 
-Released 5 November 2026 — build 18. macOS 14 or later; universal Apple Silicon and Intel application. Local speech recognition requires Apple Silicon; Parakeet Redux also requires macOS 15 or later.
+Released 7 November 2026 — build 19. macOS 14 or later; universal Apple Silicon and Intel application. Local speech recognition requires Apple Silicon; Parakeet Redux also requires macOS 15 or later.
 
-## More reliable dictation
+## Meetings in a floating window
 
-System-wide Fn dictation now reconnects automatically when Accessibility access returns or keyboard monitoring is interrupted. Settings and the menu explain permission recovery. Recording and model preparation share one lifecycle across note windows and external apps, with safer cancellation, microphone-permission changes and quitting.
+Start a meeting explicitly with microphone, other apps’ playback audio, or both. The compact transcript-first window follows Flote’s floating behavior. Hide it while recording continues, and reopen it with the configurable Meetings shortcut (default ⌥⌘M). Source health and Stop remain available; history, participants and advanced options appear on demand.
 
-Longer takes use bounded recognition windows in Whisper Base, Whisper Tiny and Parakeet Redux. This release fixes a Whisper Tiny finalization stall involving repeated context. Recognition quality still varies by model, language, noise and recording; the take limit remains 55 seconds. Audio stays in memory, and speech/model downloads remain explicit in Settings.
+Meeting capture is an early version. Real-call/device switching, permission recovery, screen sharing, acoustic echo and speaker identification still need broader physical testing. Playback and microphone can contain the same voice; complete echo suppression is not promised. Optional speaker identification is off by default and inferred labels remain uncertain; manually confirm participant names when attribution matters. Stop a meeting before quitting the app.
 
-## Recording controls that disappear automatically
+## Durable transcripts and optional audio
 
-After you release Fn or press Stop, the recording overlay disappears after five seconds once text insertion has completed. If processing takes longer, it stays visible until completion. Insertion errors keep the recognized text available through Copy text. Starting another take cancels the previous hide timer.
+Timestamped transcripts are saved in the selected collection independently of AI generation. Keep audio is an explicit option; transcript-only meetings remain searchable and navigable. Retained audio supports playback, pause and timestamp seeking. Interrupted saves can recover, and deletion controls remove retained audio or the meeting while preserving ordinary notes and shared models.
 
-Live text continues to appear in the focused supported application and is revised by the final result instead of being appended twice. Native/user acceptance includes Claude, ChatGPT, Chrome, Obsidian, Safari including fullscreen, and Terminal. This does not promise compatibility with every editor or physical display layout. Password fields are excluded; changed, read-only or unsupported destinations use recovery.
+## Evidence-based notes and reviewed next steps
 
-## Terminal input without automatic submission
+Process the whole transcript in bounded statement units, including late decisions. Notes preserve original source statements, distinguish proposals, promises, decisions, questions and revisions, and flag uncertain classifications for review. Background topics stay collapsed. This is extractive evidence, not a promise of fluent abstractive summaries.
 
-Terminal and iTerm transcripts containing line breaks or control characters are retained for explicit Copy review instead of being entered automatically. Ordinary Unicode text and emoji remain supported. This prevents spoken formatting commands from automatically submitting a command.
+Owners require manually confirmed speaker evidence; unknown owners stay unknown. Dates remain literal source wording. Review proposed tasks before creating them; repeated generation preserves manual notes and avoids duplicate accepted tasks, including multiple actions from one segment. Saved transcripts remain usable when a model is missing or generation fails.
+
+## Search and ask meetings
+
+History and keyword search work without an AI model, including long and nested meeting artifacts. Source links open the transcript moment and seek retained audio when available. Meeting chat shows original source context, keeps meetings separate and marks answers whose generated evidence selection could not be verified. Retrieval is bounded; relevant passages may be missed. Verify the cited statements before relying on an answer.
+
+Processing is local by default. Cloud text processing requires a separate explicit meeting setting; meeting audio is not uploaded. Models are prepared explicitly and remain separate from the app download.
 
 ## Updating and verification
 
-Existing notes, folder grants, settings, model caches and the stable update channel are retained. The normal Release remains unsandboxed. Packages use ad-hoc Apple signatures and are not notarized; macOS may require approval or renewed Accessibility permission after an update. If Fn no longer starts, check Settings → Dictation and restore access under System Settings → Privacy & Security → Accessibility.
+Existing notes, folder grants, preferences, cached models and the stable update channel are retained. Packages use ad-hoc Apple signatures and are not notarized; macOS may require approval or renewed Accessibility permission after an update.
 
-Validation includes focused lifecycle/editor/input regressions, native Settings/note workflows, signed native insertion/field-protection checks, direct/sandboxed upgrade-access tests, and same-audio clean/noisy German/English, UK-English and 55-second comparisons across all three engines. Recognition is imperfect; benchmark fixtures are synthetic. Intel speech inference, universal cross-app compatibility and every physical keyboard/display layout are not claimed.
+Validation includes 179 meeting tests with each cached 0.5B and 1.5B model, native floating-window/source navigation, muted audio seeking and pause, transcript-only access, no-model search, physical storage-failure probes, and universal package/signature checks. Fixtures are synthetic. These checks do not certify live-call quality, physical speaker attribution or Intel inference. Existing dictation and note-taking remain available.

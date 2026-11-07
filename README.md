@@ -2,7 +2,13 @@
 
 A lightweight macOS menu-bar app for quick notes, Markdown, bullet outlines and optional semantic search, streamed note chat and AI tag suggestions. Press a global shortcut to open a fresh floating note. Notes are stored as local Markdown files.
 
-## Current release: flote 3.19
+## Current release: flote 3.20
+
+Record meetings in a compact floating window with the configurable ⌥⌘M shortcut. Hiding the window keeps recording active. Timestamped transcripts are saved locally; audio retention is an explicit option with playback and source navigation. History and keyword search work without AI.
+
+Extractive notes retain original statements, distinguish proposals/promises/revisions and mark uncertain classifications for review. Confirm participant names before assigning personal task ownership, and review tasks before saving. Meeting chat displays original source context and marks unverifiable generated evidence selection. Models are prepared separately; processing is local by default and optional cloud text processing needs a separate meeting setting. Audio is not uploaded.
+
+Meeting capture is an early version: real-call/device/permission/share, acoustic echo and speaker-identification testing remains ongoing. Optional speaker identification starts off. Retrieval is bounded and does not promise exhaustive answers. See [release notes](RELEASE-NOTES.md) for scope and limits.
 
 Fn dictation now reconnects when keyboard permissions return, shares recording/model state across destinations and handles longer takes with bounded recognition windows. The recording overlay disappears automatically five seconds after release once insertion completes; failed insertion keeps Copy recovery. Terminal/iTerm newlines and control characters are retained for review instead of automatic command submission. See [dictation setup and recovery](DICTATION.md).
 
