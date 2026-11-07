@@ -32,6 +32,17 @@ Model weights are **not bundled**. Settings downloads `Xenova/multilingual-e5-sm
 
 License texts were copied from the resolved package checkouts and the upstream URLs listed in [provenance.json](licenses/provenance.json).
 
+## Optional meeting speaker model
+
+Meetings can explicitly download the fast v2.1 palettized v3 model from
+[FluidInference/diar-streaming-sortformer-coreml](https://huggingface.co/FluidInference/diar-streaming-sortformer-coreml),
+whose model card declares CC BY 4.0. Attribution: FluidInference, GradientDescent2718,
+and NVIDIA NeMo. This is a Core ML conversion of NVIDIA's streaming Sortformer.
+The [upstream model card](licenses/sortformer-model-card.md) is reproduced for
+attribution and limitations. Weights are not bundled; FluidAudio 0.17.3 selects the
+upstream revision and cache layout. Local inference requires explicitly prepared
+assets; model and SDK licenses are separate.
+
 ## Built-in language generation
 
 The app links [llama.cpp](https://github.com/ggml-org/llama.cpp) b5046, MIT licensed ([license](licenses/llama.cpp-LICENSE)), from its universal macOS XCFramework. The upstream archive SHA-256 is `c19be78b5f00d8d29a25da41042cb7afa094cbf6280a225abe614b03b20029ab`, pinned in `Packages/FloteLlama/Package.swift`.

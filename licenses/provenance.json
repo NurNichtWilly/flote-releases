@@ -148,6 +148,7 @@
     "qwen2.5-1.5b-LICENSE": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/raw/91cad51170dc346986eccefdc2dd33a9da36ead9/LICENSE",
     "qwen2.5-1.5b-model-card.md": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/raw/91cad51170dc346986eccefdc2dd33a9da36ead9/README.md",
     "qwen2.5-3b-LICENSE": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/raw/7dabda4d13d513e3e842b20f0d435c732f172cbe/LICENSE",
-    "qwen2.5-3b-model-card.md": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/raw/7dabda4d13d513e3e842b20f0d435c732f172cbe/README.md"
+    "qwen2.5-3b-model-card.md": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/raw/7dabda4d13d513e3e842b20f0d435c732f172cbe/README.md",
+    "sortformer-model-card.md": "https://huggingface.co/FluidInference/diar-streaming-sortformer-coreml/raw/main/README.md"
   }
 }
