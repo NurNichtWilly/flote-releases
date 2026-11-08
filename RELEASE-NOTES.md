@@ -1,31 +1,27 @@
-# flote 3.20
+# flote 3.20.1
 
-Released 7 November 2026 — build 19. macOS 14 or later; universal Apple Silicon and Intel application. Local speech recognition requires Apple Silicon; Parakeet Redux also requires macOS 15 or later.
+Released 8 November 2026 — build 20. macOS 14 or later; universal Apple Silicon and Intel application. Local speech recognition requires Apple Silicon; Parakeet Redux also requires macOS 15 or later.
 
-## Meetings in a floating window
+## Start recording while the model loads
 
-Start a meeting explicitly with microphone, other apps’ playback audio, or both. The compact transcript-first window follows Flote’s floating behavior. Hide it while recording continues, and reopen it with the configurable Meetings shortcut (default ⌥⌘M). Source health and Stop remain available; history, participants and advanced options appear on demand.
+Meetings now open audio sources while the cached transcription model loads. Early audio enters a bounded queue; Stop & save and Hide remain available. If loading takes too long, dropped windows appear as explicit transcript gaps. Download a model once in Settings → Dictation; starting a meeting does not automatically download weights.
 
-Meeting capture is an early version. Real-call/device switching, permission recovery, screen sharing, acoustic echo and speaker identification still need broader physical testing. Playback and microphone can contain the same voice; complete echo suppression is not promised. Optional speaker identification is off by default and inferred labels remain uncertain; manually confirm participant names when attribution matters. Stop a meeting before quitting the app.
+Interrupted model loading now shows a readable recovery message instead of a raw Swift Cancellation Error. Cancelling a cached Whisper load preserves downloaded weights. Failed loading stops capture and preserves recoverable metadata, gaps and any audio saved through Keep audio. An interrupted recognition window becomes a visible gap rather than a misleading storage error.
 
-## Durable transcripts and optional audio
+## Stop repeated recording requests
 
-Timestamped transcripts are saved in the selected collection independently of AI generation. Keep audio is an explicit option; transcript-only meetings remain searchable and navigable. Retained audio supports playback, pause and timestamp seeking. Interrupted saves can recover, and deletion controls remove retained audio or the meeting while preserving ordinary notes and shared models.
+Missing buffers, silence, permission denial and system-audio errors no longer automatically restart both audio sources. This removes repeated macOS recording requests caused by timed retries. Failed-source status stays visible; use Retry sources explicitly after restoring permission or a device. Microphone engine startup/shutdown runs off UI work so the window stays responsive.
 
-## Evidence-based notes and reviewed next steps
+System audio still needs macOS permission. Under System Settings → Privacy & Security → Screen & System Audio Recording, allow the installed flote app if requested. macOS may still show its own permission requests or recording reminders. A permission granted to a separate development/test app does not grant it to your installed flote app.
 
-Process the whole transcript in bounded statement units, including late decisions. Notes preserve original source statements, distinguish proposals, promises, decisions, questions and revisions, and flag uncertain classifications for review. Background topics stay collapsed. This is extractive evidence, not a promise of fluent abstractive summaries.
+## Hide the window reliably
 
-Owners require manually confirmed speaker evidence; unknown owners stay unknown. Dates remain literal source wording. Review proposed tasks before creating them; repeated generation preserves manual notes and avoids duplicate accepted tasks, including multiple actions from one segment. Saved transcripts remain usable when a model is missing or generation fails.
+⌘W and the Hide button work during model loading, recording and errors. Hiding the floating window keeps recording active. Reopen it with the configurable Meetings shortcut (default ⌥⌘M), then use Stop & save to finish.
 
-## Search and ask meetings
+## Verification and remaining limits
 
-History and keyword search work without an AI model, including long and nested meeting artifacts. Source links open the transcript moment and seek retained audio when available. Meeting chat shows original source context, keeps meetings separate and marks answers whose generated evidence selection could not be verified. Retrieval is bounded; relevant passages may be missed. Verify the cited statements before relying on an answer.
+190 regression tests passed, including cached Whisper Base English/German recognition, cancelled-load cache preservation, startup buffering, permission/start cancellation and retry behavior. Native UI acceptance covered hiding during loading/errors, restarting and stopping. Signed development and universal builds passed signature checks.
 
-Processing is local by default. Cloud text processing requires a separate explicit meeting setting; meeting audio is not uploaded. Models are prepared explicitly and remain separate from the app download.
+A separately signed, system-only physical test on Apple M4/macOS 27.2 received real playback from a known synthetic file in another process and Whisper Base recognized its words. No microphone was opened in that probe. This does not certify the other M1 Pro Mac, simultaneous microphone/playback, all call apps, device switching, sleep/wake, screen sharing, acoustic echo or optional speaker identification. Meetings remain an early version; review source health and transcript gaps.
 
-## Updating and verification
-
-Existing notes, folder grants, preferences, cached models and the stable update channel are retained. Packages use ad-hoc Apple signatures and are not notarized; macOS may require approval or renewed Accessibility permission after an update.
-
-Validation includes 179 meeting tests with each cached 0.5B and 1.5B model, native floating-window/source navigation, muted audio seeking and pause, transcript-only access, no-model search, physical storage-failure probes, and universal package/signature checks. Fixtures are synthetic. These checks do not certify live-call quality, physical speaker attribution or Intel inference. Existing dictation and note-taking remain available.
+Existing notes, recordings, preferences, cached models and the stable update channel are retained. Packages use ad-hoc Apple signatures and are not notarized; macOS may require first-launch approval or renewed privacy permission after an update.

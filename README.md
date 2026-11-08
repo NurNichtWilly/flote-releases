@@ -2,7 +2,11 @@
 
 A lightweight macOS menu-bar app for quick notes, Markdown, bullet outlines and optional semantic search, streamed note chat and AI tag suggestions. Press a global shortcut to open a fresh floating note. Notes are stored as local Markdown files.
 
-## Current release: flote 3.20
+## Current release: flote 3.20.1
+
+Meetings start capturing while cached transcription models load. Stop/Hide stay available, interrupted loading has readable recovery, and cancelled Whisper loads preserve downloaded weights. Missing or denied system audio no longer causes timed all-source restarts and repeated recording requests. ⌘W hides the window during recording, loading and errors; recording continues until Stop & save.
+
+System audio requires macOS recording permission for the installed flote app. Restore it under Privacy & Security → Screen & System Audio Recording if requested, then use Retry sources explicitly. A known external playback fixture was received and recognized with Whisper Base in a separately signed test on Apple M4/macOS 27.2; other devices/call/simultaneous-source cases still need testing. See [release notes](RELEASE-NOTES.md).
 
 Record meetings in a compact floating window with the configurable ⌥⌘M shortcut. Hiding the window keeps recording active. Timestamped transcripts are saved locally; audio retention is an explicit option with playback and source navigation. History and keyword search work without AI.
 
