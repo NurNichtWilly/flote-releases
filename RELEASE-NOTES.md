@@ -1,27 +1,21 @@
-# flote 3.20.1
+# flote 3.21
 
-Released 8 November 2026 — build 20. macOS 14 or later; universal Apple Silicon and Intel application. Local speech recognition requires Apple Silicon; Parakeet Redux also requires macOS 15 or later.
+Released 16 November 2026 — build 21. macOS 14 or later; universal Apple Silicon and Intel application. Live local speech recognition requires Apple Silicon; Parakeet Redux also requires macOS 15 or later.
 
-## Start recording while the model loads
+## Transcribe saved meetings again
 
-Meetings now open audio sources while the cached transcription model loads. Early audio enters a bounded queue; Stop & save and Hide remain available. If loading takes too long, dropped windows appear as explicit transcript gaps. Download a model once in Settings → Dictation; starting a meeting does not automatically download weights.
+Open a saved meeting and choose **… → Retranscribe…** to use a larger model from your existing local Whisper installation. flote detects Homebrew Whisper and cached `.pt` models, including Large v3 and Large v3 Turbo. You can choose another executable/checkpoint and select the spoken language or automatic detection. The existing local Python Whisper installation and its dependencies are required; flote does not download a model for this action. Processing runs locally on CPU and large models may take longer.
 
-Interrupted model loading now shows a readable recovery message instead of a raw Swift Cancellation Error. Cancelling a cached Whisper load preserves downloaded weights. Failed loading stops capture and preserves recoverable metadata, gaps and any audio saved through Keep audio. An interrupted recognition window becomes a visible gap rather than a misleading storage error.
+The meeting must have been recorded with **Keep audio** enabled. Microphone and system recordings are processed separately, preserving source time and visible gaps. Progress and Cancel remain available. Success creates a new transcript version; **… → Transcript versions** switches back to the original or another version. Manual notes remain shared, and older citations still open their source version. Review speaker labels in the new transcript. A failed or cancelled job leaves the active transcript intact.
 
-## Stop repeated recording requests
+## More reliable recording and window controls
 
-Missing buffers, silence, permission denial and system-audio errors no longer automatically restart both audio sources. This removes repeated macOS recording requests caused by timed retries. Failed-source status stays visible; use Retry sources explicitly after restoring permission or a device. Microphone engine startup/shutdown runs off UI work so the window stays responsive.
+Short audio interruptions now remain explicit gaps instead of being joined into continuous speech. Repeated or stale capture windows cannot rewind transcript time; invalid word timestamps leave a visible explanation. Exact non-speech markers are filtered. Source-health reporting distinguishes silence from verified audio, while retry and elapsed time use a monotonic clock.
 
-System audio still needs macOS permission. Under System Settings → Privacy & Security → Screen & System Audio Recording, allow the installed flote app if requested. macOS may still show its own permission requests or recording reminders. A permission granted to a separate development/test app does not grant it to your installed flote app.
-
-## Hide the window reliably
-
-⌘W and the Hide button work during model loading, recording and errors. Hiding the floating window keeps recording active. Reopen it with the configurable Meetings shortcut (default ⌥⌘M), then use Stop & save to finish.
+The meeting close control stays on screen at small window sizes and after display changes. Closing or pressing Escape hides the meeting window; reopen it with the Meetings shortcut (default ⌥⌘M). Use **Stop & save** to finish an active recording. Manual transcript scrolling also suspends following reliably.
 
 ## Verification and remaining limits
 
-190 regression tests passed, including cached Whisper Base English/German recognition, cancelled-load cache preservation, startup buffering, permission/start cancellation and retry behavior. Native UI acceptance covered hiding during loading/errors, restarting and stopping. Signed development and universal builds passed signature checks.
+The final feature regression passed 215 tests across 20 suites. Existing Large v3 and Large v3 Turbo checkpoints actually retranscribed a synthetic retained-audio fixture without downloads. Both complete 1,049-second natural-recording benchmarks were processed during acceptance work. These checks do not certify every conferencing app or recording environment; distant-room recognition and optional speaker identification still have substantial quality limits. Review transcripts and source health. Physical call/device/sleep/screen-sharing and acoustic-echo acceptance remains incomplete.
 
-A separately signed, system-only physical test on Apple M4/macOS 27.2 received real playback from a known synthetic file in another process and Whisper Base recognized its words. No microphone was opened in that probe. This does not certify the other M1 Pro Mac, simultaneous microphone/playback, all call apps, device switching, sleep/wake, screen sharing, acoustic echo or optional speaker identification. Meetings remain an early version; review source health and transcript gaps.
-
-Existing notes, recordings, preferences, cached models and the stable update channel are retained. Packages use ad-hoc Apple signatures and are not notarized; macOS may require first-launch approval or renewed privacy permission after an update.
+Existing notes, retained recordings, preferences, cached models and the stable update channel are preserved. Packages use ad-hoc Apple signatures and are not notarized; macOS may require first-launch approval or renewed privacy permission after an update.

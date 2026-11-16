@@ -2,11 +2,11 @@
 
 A lightweight macOS menu-bar app for quick notes, Markdown, bullet outlines and optional semantic search, streamed note chat and AI tag suggestions. Press a global shortcut to open a fresh floating note. Notes are stored as local Markdown files.
 
-## Current release: flote 3.20.1
+## Current release: flote 3.21
 
-Meetings start capturing while cached transcription models load. Stop/Hide stay available, interrupted loading has readable recovery, and cancelled Whisper loads preserve downloaded weights. Missing or denied system audio no longer causes timed all-source restarts and repeated recording requests. ⌘W hides the window during recording, loading and errors; recording continues until Stop & save.
+Saved meetings can be transcribed again with your existing local Whisper installation and larger `.pt` models, including Large v3 and Large v3 Turbo. Choose **… → Retranscribe…**, select a model and language, and keep the original transcript alongside the new version. Audio must have been retained when recording. Progress/cancellation and version switching are included; no model download is initiated by this feature.
 
-System audio requires macOS recording permission for the installed flote app. Restore it under Privacy & Security → Screen & System Audio Recording if requested, then use Retry sources explicitly. A known external playback fixture was received and recognized with Whisper Base in a separately signed test on Apple M4/macOS 27.2; other devices/call/simultaneous-source cases still need testing. See [release notes](RELEASE-NOTES.md).
+Meeting reliability improvements preserve source gaps, reject stale capture windows, explain invalid timestamps, improve signal-health reporting and keep the close control on screen. Closing or Escape hides the window; use Stop & save to finish recording. See [release notes](RELEASE-NOTES.md) and [meeting setup](MEETINGS.md).
 
 Record meetings in a compact floating window with the configurable ⌥⌘M shortcut. Hiding the window keeps recording active. Timestamped transcripts are saved locally; audio retention is an explicit option with playback and source navigation. History and keyword search work without AI.
 
