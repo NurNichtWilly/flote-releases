@@ -2,11 +2,13 @@
 
 A lightweight macOS menu-bar app for quick notes, Markdown, bullet outlines and optional semantic search, streamed note chat and AI tag suggestions. Press a global shortcut to open a fresh floating note. Notes are stored as local Markdown files.
 
-## Current release: flote 3.21
+## flote 4.0
 
-Saved meetings can be transcribed again with your existing local Whisper installation and larger `.pt` models, including Large v3 and Large v3 Turbo. Choose **… → Retranscribe…**, select a model and language, and keep the original transcript alongside the new version. Audio must have been retained when recording. Progress/cancellation and version switching are included; no model download is initiated by this feature.
+The new workspace brings notes, Tasks, Time Tracking, Chat, Meetings and Daily Reports into one Mac window. Search, sort, filter and favourite Markdown notes, or open a floating note from anywhere with ⌥⌘N. The workspace comes in Clear and Paper styles.
 
-Meeting reliability improvements preserve source gaps, reject stale capture windows, explain invalid timestamps, improve signal-health reporting and keep the close control on screen. Closing or Escape hides the window; use Stop & save to finish recording. See [release notes](RELEASE-NOTES.md) and [meeting setup](MEETINGS.md).
+Start a timer from the menu bar or a task, review daily and weekly totals, and export entries as CSV. When changing folders or Obsidian vaults, choose whether to move your notes and images. See the [release notes](RELEASE-NOTES.md) and [vault and CLI guide](VAULT-AND-CLI.md).
+
+## More features
 
 Record meetings in a compact floating window with the configurable ⌥⌘M shortcut. Hiding the window keeps recording active. Timestamped transcripts are saved locally; audio retention is an explicit option with playback and source navigation. History and keyword search work without AI.
 

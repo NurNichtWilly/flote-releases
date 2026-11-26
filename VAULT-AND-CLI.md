@@ -1,10 +1,18 @@
 # Obsidian and the flote CLI
 
-Select **Settings → Obsidian → Choose Obsidian Vault…**. flote creates or uses `flote/` inside that vault. Previous collections stay where they are; selecting a vault does not migrate notes or images. Switching back uses **Notes Folder → Change…**. Open editors retain their original collection.
+Select **Settings → Notes → Choose Obsidian Vault…**. flote creates or uses `flote/` inside that vault. To use a regular notes folder, choose **Settings → Notes → Change…**.
+
+## Move notes when changing collections
+
+- **Move Notes** transfers the managed Markdown notes and their referenced flote images. The move keeps note IDs and modification dates. A filename already in use gets a numbered suffix, and flote updates its supported internal links. If two different notes share an ID, flote stops and shows the affected files.
+- **Switch and Leave Notes** makes the new folder active. Files in the old folder stay there. flote saves open notes before switching. The CLI follows the active collection unless you pass an explicit path.
+- **Cancel** keeps the original collection active. Reauthorising a folder restores access to the same collection.
+
+flote previews proposed link changes outside its managed directory, including the file and the old and new targets. Choose whether to apply those edits. Links with ambiguous targets or targets that cannot be reached inside their Vault appear in the review for manual follow-up. When a move is interrupted, flote recovers it on the next launch. If a file changes during the move and flote cannot safely remove the original, it reports the retained path.
 
 New notes get a readable filename from their first heading/non-empty content line, with unsafe filename characters removed and numbered collision suffixes. Existing UUID filenames remain supported. New readable files carry a terminal `<!-- flote-id: UUID -->` identity comment; flote hides only that identity line from its editor, including when Obsidian appends text after it. Unknown frontmatter, Markdown and image references are preserved. Opening a legacy note adds its stable identity so later external renames are recognized. Do not remove or duplicate the identity line.
 
-Use **Rename Note…** in the editor’s context menu, or the CLI `rename` command. Renaming retains identity and relative image references and updates recognized incoming links in other managed flote notes. External vault documents are never rewritten. If you rename externally, use Obsidian’s own automatic link updates; flote follows the embedded identity but does not rewrite external documents.
+Use **Rename Note…** in the editor’s context menu, or the CLI `rename` command. Renaming retains identity and relative image references and updates recognized incoming links in other managed flote notes. Renaming writes only to managed flote notes. If you rename externally, use Obsidian’s own automatic link updates; flote follows the embedded identity but does not rewrite external documents.
 
 External edits of a clean open note are loaded within roughly one second. If you also have unsaved changes, flote preserves your version as a separate conflict note and shows a message with **Open saved copy**. A deleted original is not recreated. Changes from flote processes are serialized through a collection lock, and commits use macOS file coordination with source comparisons. Unavailable storage produces a visible save error. The app’s existing temporary spill protection remains available when a folder grant cannot be used.
 

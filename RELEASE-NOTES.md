@@ -1,21 +1,20 @@
-# flote 3.21
+# flote 4.0
 
-Released 16 November 2026 — build 21. macOS 14 or later; universal Apple Silicon and Intel application. Live local speech recognition requires Apple Silicon; Parakeet Redux also requires macOS 15 or later.
+Build 24 supports macOS 14 and later on Apple Silicon and Intel. flote remains free to use. Local speech recognition features have their own hardware requirements.
 
-## Transcribe saved meetings again
+## Workspace and quick capture
 
-Open a saved meeting and choose **… → Retranscribe…** to use a larger model from your existing local Whisper installation. flote detects Homebrew Whisper and cached `.pt` models, including Large v3 and Large v3 Turbo. You can choose another executable/checkpoint and select the spoken language or automatic detection. The existing local Python Whisper installation and its dependencies are required; flote does not download a model for this action. Processing runs locally on CPU and large models may take longer.
+- Browse, search and edit your notes in a standard Mac window. Sort notes, filter by tag, mark favourites and choose a Clear or Paper workspace style.
+- Open Tasks, Chat, Meetings and Daily Reports from the workspace. The floating note and quick-search shortcuts are still available from other apps.
 
-The meeting must have been recorded with **Keep audio** enabled. Microphone and system recordings are processed separately, preserving source time and visible gaps. Progress and Cancel remain available. Success creates a new transcript version; **… → Transcript versions** switches back to the original or another version. Manual notes remain shared, and older citations still open their source version. Review speaker labels in the new transcript. A failed or cancelled job leaves the active transcript intact.
+## Time tracking
 
-## More reliable recording and window controls
+- Start a timer from the menu bar or from a task. Review daily and weekly totals, adjust or add entries, and export a date range as CSV. Time entries stay on your Mac.
 
-Short audio interruptions now remain explicit gaps instead of being joined into continuous speech. Repeated or stale capture windows cannot rewind transcript time; invalid word timestamps leave a visible explanation. Exact non-speech markers are filtered. Source-health reporting distinguishes silence from verified audio, while retry and elapsed time use a monotonic clock.
+## Moving your notes
 
-The meeting close control stays on screen at small window sizes and after display changes. Closing or pressing Escape hides the meeting window; reopen it with the Meetings shortcut (default ⌥⌘M). Use **Stop & save** to finish an active recording. Manual transcript scrolling also suspends following reliably.
+- When you switch folders or Obsidian vaults, choose whether to move your existing notes and images or leave them where they are. flote previews supported Vault link changes and can recover from an interrupted move.
 
-## Verification and remaining limits
+## Installation
 
-The final feature regression passed 215 tests across 20 suites. Existing Large v3 and Large v3 Turbo checkpoints actually retranscribed a synthetic retained-audio fixture without downloads. Both complete 1,049-second natural-recording benchmarks were processed during acceptance work. These checks do not certify every conferencing app or recording environment; distant-room recognition and optional speaker identification still have substantial quality limits. Review transcripts and source health. Physical call/device/sleep/screen-sharing and acoustic-echo acceptance remains incomplete.
-
-Existing notes, retained recordings, preferences, cached models and the stable update channel are preserved. Packages use ad-hoc Apple signatures and are not notarized; macOS may require first-launch approval or renewed privacy permission after an update.
+This release is ad-hoc signed and is not notarized by Apple. macOS may block the download or ask again for microphone or system audio permissions.
