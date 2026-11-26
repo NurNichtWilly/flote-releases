@@ -1,6 +1,6 @@
 # Third-party notices
 
-These dependencies retain their upstream licenses; this document does not assign a license to flote. Full original license/notice texts are in `licenses/` beside this file and are included in the app distribution. Versions and source revisions match Package.resolved. Some resolved packages provide transitive functionality rather than a separately loaded library.
+These dependencies retain their upstream licenses; this document does not assign a license to flote. Full original license/notice texts are in `licenses/` beside this file and are included in the app distribution. Swift package versions and source revisions match Package.resolved. The native whisper.cpp helper is separately pinned by scripts/build-native-whisper.sh. Some resolved packages provide transitive functionality rather than a separately loaded library.
 
 | Dependency | Version | Revision | Original texts |
 |---|---|---|---|
@@ -59,3 +59,5 @@ Additional optional Qwen 2.5 Q4_K_M downloads:
 The 3B model's Qwen Research license permits research/evaluation use; commercial use requires a separate license from Alibaba Cloud. This restriction applies to that optional model, separately from flote's freeware terms. Models download directly from the pinned upstream repositories and are not bundled in flote.
 
 Qwen is licensed under the Qwen RESEARCH LICENSE AGREEMENT, Copyright (c) Alibaba Cloud. All Rights Reserved.
+
+The native meeting helper includes [whisper.cpp](https://github.com/ggml-org/whisper.cpp), v1.8.2, revision `4979e04f5dcaccb36057e059bbaed8a2f5288315`, under its [MIT license](licenses/whisper.cpp-LICENSE). It includes nlohmann/json 3.11.2 under its [MIT license](licenses/nlohmann-json-LICENSE.MIT). Flote adds allocation-budget checks to the pinned Metal backend; it does not incorporate Meetily source code.

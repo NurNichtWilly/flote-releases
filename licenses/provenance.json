@@ -150,5 +150,18 @@
     "qwen2.5-3b-LICENSE": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/raw/7dabda4d13d513e3e842b20f0d435c732f172cbe/LICENSE",
     "qwen2.5-3b-model-card.md": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/raw/7dabda4d13d513e3e842b20f0d435c732f172cbe/README.md",
     "sortformer-model-card.md": "https://huggingface.co/FluidInference/diar-streaming-sortformer-coreml/raw/main/README.md"
-  }
+  },
+  "native_helpers": [
+    {
+      "identity": "whisper.cpp",
+      "location": "https://github.com/ggml-org/whisper.cpp.git",
+      "revision": "4979e04f5dcaccb36057e059bbaed8a2f5288315",
+      "version": "1.8.2",
+      "local_changes": "Metal buffer allocation guards; no silent GPU fallback; DTW thread budget and short-tail frame/filter handling",
+      "embedded_dependency": {
+        "identity": "nlohmann/json",
+        "version": "3.11.2"
+      }
+    }
+  ]
 }
